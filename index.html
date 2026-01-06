@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Proyectos - Afore Coppel</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de color para un look corporativo (Azul/Gris) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        .card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .text-coppel-blue {
+            color: #1f3a93; /* Un azul corporativo */
+        }
+        .bg-coppel-blue {
+            background-color: #1f3a93;
+        }
+        /* Estilos de tabla */
+        .styled-table th, .styled-table td {
+            padding: 0.75rem 0.5rem;
+        }
+        
+        /* Estilos para el Gráfico de Pastel */
+        .pie-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            position: relative;
+            border-radius: 50%;
+            margin-top: 2rem;
+            background-color: #f0f0f0;
+        }
+        .pie-legend {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .legend-color {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <header class="mb-8 border-b-4 border-coppel-blue pb-4">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-coppel-blue">Presentación Proyectos</h1>
+        <p class="text-lg text-gray-600 mt-1">02 Enero 2026 | 2 Proyectos 13 Incidencias</p>
+    </header>
+
+    <!-- Sección de Proyectos / Incidencias Principales -->
+    <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 border-l-4 border-coppel-blue pl-3">Avance de Incidencias con Mayor Tiempo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Proyecto 1: Crítico -->
+            <div class="card p-5 bg-white rounded-lg border-t-4 border-red-600 text-center">
+                <h3 class="text-xl font-bold mt-1 text-gray-900">Rechazo PJ5 - FDEV</h3>
+                <p class="text-3xl font-extrabold text-red-600 mt-2">SIN AVANCE</p>
+                <p class="text-sm text-gray-500 mt-1">
+                    En espera de asignación de DEF
+                </p>
+            </div>
+
+            <!-- Proyecto 2: En Proceso -->
+            <div class="card p-5 bg-white rounded-lg border-t-4 border-yellow-600 text-center">
+                <h3 class="text-xl font-bold mt-1 text-gray-900">Rechazo G-67</h3>
+                <p class="text-3xl font-extrabold text-yellow-600 mt-2">80% Avance</p>
+                <p class="text-sm text-gray-500 mt-1">
+                    9384895 - 22/12/2025 Teniendo problemas con la réplica de pruebas unitarias debido a temas con el menú Afore instalado en el laboratorio. Ellos están explorando opciones, incluyendo acercarse a Daniel Castro y al equipo de riesgos en la semana en curso.
+                </p>
+            </div>
+
+            <!-- Proyecto 3: Completado -->
+            <div class="card p-5 bg-white rounded-lg border-t-4 border-green-600 text-center">
+                <h3 class="text-xl font-bold mt-1 text-gray-900">Registro por beneficiario con identificación oficial diferente de la INE. 11-1</h3>
+                <p class="text-3xl font-extrabold text-green-600 mt-2">85% Avance</p>
+                <p class="text-sm text-gray-500 mt-1">
+                    9061734 - Platicando con usuario pide un caso adicional que se presente. La temporalidad del año no ayudó para que se presentaran casos.Usuario con el que se está validando  Jose Adrian Lopez Berrelleza, daremos hasta el 9 de enero para conseguir ese nuevo caso.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gráficos Centrales -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+
+        <!-- GRÁFICO 1: Tabla de Incidencias en Atención -->
+        <div class="card p-6 bg-white rounded-lg">
+            <h3 class="text-xl font-semibold mb-4 text-text-coppel-blue text-center">Incidencias en Atención</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-300 styled-table">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tl-lg px-4">Folio</th>
+                            <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider w-1/2">Nombre de la Incidencia</th>
+                            <th class="text-center text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tr-lg w-1/4">Fase del Problema</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm" id="table-top-incidencias">
+                        <!-- Filas generadas por JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- GRÁFICO 2: Tabla de Incidencias en Espera -->
+        <div class="card p-6 bg-white rounded-lg">
+            <h3 class="text-xl font-semibold mb-4 text-text-coppel-blue">Incidencias en Espera de Atención</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-300 styled-table">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tl-lg px-4">Folio</th>
+                            <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider w-2/3">Descripción</th>
+                            <th class="text-center text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tr-lg w-1/4">Fecha de creación</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200 text-sm" id="table-servicio">
+                        <!-- Filas generadas por JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Análisis de Proyectos y Distribución Global -->
+    <section class="mb-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Tabla de Proyectos Internos -->
+            <div class="card p-6 bg-white rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-text-coppel-blue text-center">Proyectos Internos Afore</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-300 styled-table">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tl-lg px-4">Folio</th>
+                                <th class="text-left text-xs font-medium text-gray-700 uppercase tracking-wider w-1/3">Proyecto</th>
+                                <th class="text-center text-xs font-medium text-gray-700 uppercase tracking-wider">Estatus</th>
+                                <th class="text-center text-xs font-medium text-gray-700 uppercase tracking-wider rounded-tr-lg">Fecha Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 text-sm" id="table-proyectos-internos">
+                            <!-- Filas generadas por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Gráfico Global -->
+            <div class="card p-6 bg-white rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-text-coppel-blue text-center">Distribución Global</h3>
+                <div class="flex flex-col items-center">
+                    <div id="chart-division" class="pie-chart-container w-48 h-48">
+                        <!-- El gráfico de pastel se genera en CSS/JS -->
+                    </div>
+                    <ul id="pie-legend" class="pie-legend w-full px-4">
+                        <!-- Leyenda generada por JS -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="mt-10 pt-4 border-t border-gray-300 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Afore Coppel. Reporte Generado por la Gerencia de Afiliaciones.</p>
+    </footer>
+
+    <script>
+        // --- DATOS ---
+
+        // Tabla Izquierda: Incidencias en Atención
+        const dataTopIncidencias = [
+            { folio: "10308221", nombre: "Envió aviso plazo de cancelación SMS", fase: "Monitoreo" },
+            { folio: "10407294", nombre: "Falla biométricos - Al realizar una afiliación, en la tabla enrolhuellastrabajador no se está insertando el dispositivo (queda vacío)", fase: "Desarrollo" },
+            { folio: "10568554", nombre: "Al hacer el envío de cartas por medio del Menú Operaciones la mayor parte de las cartas se está yendo por SMS", fase: "RCA" },
+            { folio: "9061734", nombre: "Registro por beneficiario con identificación oficial diferente de la INE", fase: "Pruebas" },
+            { folio: "9384895", nombre: "Rechazo G67", fase: "Desarrollo" },
+        ];
+
+        // Tabla Derecha: Incidencias en Espera de Atención (Antiguas)
+        const dataServicio = [
+            { folio: "9913760", descripcion: "Inconsistencias en la calidad de Videos", fecha: "24/09/2025" },
+            { folio: "9784277", descripcion: "Documentos incompletos que quedan en estatus 10-1 y 6-1", fecha: "15/09/2025" },
+            { folio: "8669227", descripcion: "Solicitudes sin Vigencia de los Documentos", fecha: "20/06/2025" },
+            { folio: "8605993", descripcion: "Recupecacion de Renbios en el sistema MenuOficinasAfore ya que usuario los necesita ver en la tabla enrolcargarenvio", fecha: "16/06/2025" },
+            { folio: "10458837", descripcion: "Para los trabajadores que están excepcionados en la solicitud de traspaso no se está planchando la huella del AP", fecha: "30/10/2025" },
+            // NUEVAS FILAS AGREGADAS
+            { folio: "7752015", descripcion: "Error al Generar la Consulta Integral.  Revisando la función aceptar(), no hay algo que detenga el flujo para los Tipo Solicitud 26, dado que solo valida que tenga enrolamiento y no consulta integral", fecha: "02/04/2025" },
+            { folio: "Rechazo PJ5, FDEV", descripcion: "En espera de confirmación sobre el DEF para su atención por parte de desarrollo", fecha: "BackOffice" },
+            // FIN NUEVAS FILAS
+            { folio: "11340437", descripcion: "RECHAZO P04 - Rechazo debido, a que el beneficiario no cuenta con un nombre en la solicitud de traspaso", fecha: "06/01/2026" }
+        ];
+
+        // Tabla Inferior: Proyectos Internos
+        const dataProyectosInternos = [
+            { folio: "1007295", proyecto: "COMPARADOR TRASPASOS AFORE MÓVIL / WEB", estatus: "En Desarrollo", fechaFin: "16/02/2025" },
+            { folio: "1007044", proyecto: "AJUSTES EN DOMICILIO REGISTRO Y TRASPASOS", estatus: "En Análisis", fechaFin: "TBD" }
+        ];
+        
+        // --- FUNCIONES DE RENDERIZADO ---
+
+        function renderTopIncidenciasTable() {
+            const tbody = document.getElementById('table-top-incidencias');
+            tbody.innerHTML = ''; 
+            
+            dataTopIncidencias.forEach(item => {
+                const row = tbody.insertRow();
+                row.className = 'hover:bg-gray-50';
+
+                let cell0 = row.insertCell();
+                cell0.className = 'font-bold text-gray-700 text-xs py-3 px-4 align-top';
+                cell0.textContent = item.folio;
+
+                let cell1 = row.insertCell();
+                cell1.className = 'font-medium text-gray-900 text-xs py-3 align-top';
+                cell1.textContent = item.nombre;
+
+                let cell2 = row.insertCell();
+                cell2.className = 'text-center font-bold text-xs py-3 align-top';
+                
+                const faseSpan = document.createElement('span');
+                faseSpan.className = 'px-2 py-1 rounded-full text-xs';
+                faseSpan.textContent = item.fase;
+                
+                if(item.fase === 'RCA') {
+                    faseSpan.className += ' bg-red-100 text-red-800';
+                } else if (item.fase === 'Solución') {
+                    faseSpan.className += ' bg-green-100 text-green-800';
+                } else if (item.fase === 'Monitoreo') {
+                    faseSpan.className += ' bg-blue-100 text-blue-800';
+                } else {
+                    faseSpan.className += ' bg-yellow-100 text-yellow-800';
+                }
+
+                cell2.appendChild(faseSpan);
+            });
+        }
+
+        function renderServicioTable() {
+            const tbody = document.getElementById('table-servicio');
+            tbody.innerHTML = ''; 
+            
+            dataServicio.forEach(item => {
+                const row = tbody.insertRow();
+                row.className = 'hover:bg-gray-50';
+
+                let cell0 = row.insertCell();
+                cell0.className = 'font-bold text-gray-700 text-xs py-3 px-4 align-top';
+                cell0.textContent = item.folio;
+
+                let cell1 = row.insertCell();
+                cell1.className = 'font-medium text-gray-900 text-xs py-3 align-top px-2';
+                cell1.textContent = item.descripcion;
+
+                let cell2 = row.insertCell();
+                cell2.className = 'text-center text-gray-600 text-xs py-3 font-semibold align-top';
+                cell2.textContent = item.fecha;
+            });
+        }
+
+        function renderProyectosInternosTable() {
+            const tbody = document.getElementById('table-proyectos-internos');
+            tbody.innerHTML = ''; 
+            
+            dataProyectosInternos.forEach(item => {
+                const row = tbody.insertRow();
+                row.className = 'hover:bg-gray-50';
+
+                let cell0 = row.insertCell();
+                cell0.className = 'font-bold text-gray-700 text-xs py-3 px-4 align-top';
+                cell0.textContent = item.folio;
+
+                let cell1 = row.insertCell();
+                cell1.className = 'font-medium text-gray-900 text-xs py-3 align-top';
+                cell1.textContent = item.proyecto;
+
+                let cell2 = row.insertCell();
+                cell2.className = 'text-center font-bold text-xs py-3 align-top';
+                
+                const statusSpan = document.createElement('span');
+                statusSpan.className = 'px-2 py-1 rounded-full text-xs';
+                statusSpan.textContent = item.estatus;
+                
+                if(item.estatus.includes("Sin Avance")) {
+                    statusSpan.className += ' bg-red-100 text-red-800';
+                } else if (item.estatus.includes("Finalizado")) {
+                    statusSpan.className += ' bg-green-100 text-green-800';
+                } else if (item.estatus.includes("Avance") || item.estatus.includes("Desarrollo") || item.estatus.includes("Análisis")) {
+                    statusSpan.className += ' bg-yellow-100 text-yellow-800';
+                } else {
+                    statusSpan.className += ' bg-gray-100 text-gray-800';
+                }
+
+                cell2.appendChild(statusSpan);
+
+                let cell3 = row.insertCell();
+                cell3.className = 'text-center text-gray-600 text-xs py-3 font-semibold align-top';
+                cell3.textContent = item.fechaFin;
+            });
+        }
+
+        function renderGlobalChart() {
+            const pieContainer = document.getElementById('chart-division');
+            const legendContainer = document.getElementById('pie-legend');
+            legendContainer.innerHTML = '';
+
+            // Calcular totales dinámicamente
+            const countAtencion = dataTopIncidencias.length;
+            const countAntiguas = dataServicio.length;
+            const countProyectos = dataProyectosInternos.length;
+            const total = countAtencion + countAntiguas + countProyectos;
+
+            const dataGlobal = [
+                { 
+                    label: "Incidencias en Atención", 
+                    count: countAtencion, 
+                    percentage: total > 0 ? ((countAtencion / total) * 100).toFixed(1) : 0, 
+                    color: '#3b82f6' // Azul
+                },
+                { 
+                    label: "Incidencias en Espera de Atención", 
+                    count: countAntiguas, 
+                    percentage: total > 0 ? ((countAntiguas / total) * 100).toFixed(1) : 0, 
+                    color: '#ef4444' // Rojo
+                },
+                { 
+                    label: "Proyectos Internos", 
+                    count: countProyectos, 
+                    percentage: total > 0 ? ((countProyectos / total) * 100).toFixed(1) : 0, 
+                    color: '#eab308' // Amarillo/Dorado
+                }
+            ];
+
+            let currentAngle = 0;
+            let conicGradient = 'conic-gradient(';
+
+            if (total > 0) {
+                dataGlobal.forEach((item) => {
+                    const angle = (item.count / total) * 360;
+                    const nextAngle = currentAngle + angle;
+                    conicGradient += `${item.color} ${currentAngle}deg ${nextAngle}deg, `;
+                    currentAngle = nextAngle;
+
+                    const legendItem = document.createElement('li');
+                    legendItem.className = 'legend-item flex justify-between w-full border-b border-gray-100 py-1 last:border-0';
+                    legendItem.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="legend-color flex-shrink-0" style="background-color: ${item.color};"></div>
+                            <span class="text-xs font-medium text-gray-700">${item.label}</span>
+                        </div>
+                        <span class="text-xs font-bold text-gray-900 ml-2">${item.percentage}% (${item.count})</span>
+                    `;
+                    legendContainer.appendChild(legendItem);
+                });
+                conicGradient = conicGradient.slice(0, -2) + ')';
+                pieContainer.style.background = conicGradient;
+            } else {
+                pieContainer.style.background = '#e5e7eb'; // Gris si no hay datos
+            }
+        }
+
+        // Inicialización
+        window.onload = function() {
+            renderTopIncidenciasTable();
+            renderServicioTable();
+            renderProyectosInternosTable();
+            renderGlobalChart();
+        };
+    </script>
+</body>
+</html>
