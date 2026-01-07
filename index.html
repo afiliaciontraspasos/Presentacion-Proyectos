@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configuración de color para un look corporativo (Azul/Gris) -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f7f7;
@@ -22,6 +22,7 @@
         .bg-coppel-blue {
             background-color: #1f3a93;
         }
+        
         /* Estilos de tabla */
         .styled-table th, .styled-table td {
             padding: 0.75rem 0.5rem;
@@ -59,9 +60,26 @@
 </head>
 <body class="p-4 sm:p-8">
 
-    <header class="mb-8 border-b-4 border-coppel-blue pb-4">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-coppel-blue">Presentación Proyectos</h1>
-        <p class="text-lg text-gray-600 mt-1">02 Enero 2026 | 2 Proyectos 13 Incidencias</p>
+    <!-- ENCABEZADO CON LOGO OFICIAL (URL REMOTA) -->
+    <!-- 
+         Nota para GitHub: Al usar una URL absoluta (https://...), el logo se cargará correctamente
+         incluso si el archivo HTML se mueve de carpeta o se visualiza en GitHub Pages.
+    -->
+    <header class="mb-8 border-b-4 border-coppel-blue pb-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-coppel-blue">Presentación Proyectos</h1>
+            <p class="text-lg text-gray-600 mt-1">02 Enero 2026 | 2 Proyectos 13 Incidencias</p>
+        </div>
+        
+        <!-- LOGO -->
+        <div class="flex-shrink-0">
+            <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Coppel_logo.svg/2560px-Coppel_logo.svg.png" 
+                alt="Logo Afore Coppel" 
+                class="h-16 w-auto object-contain"
+                onerror="this.src='https://cdn.worldvectorlogo.com/logos/coppel.svg'; this.onerror=null;"
+            >
+        </div>
     </header>
 
     <!-- Sección de Proyectos / Incidencias Principales -->
